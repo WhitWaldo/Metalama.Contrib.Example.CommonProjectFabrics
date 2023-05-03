@@ -67,7 +67,7 @@ public class LogAttribute : MethodAspect
             stopwatch.Stop();
             var elapsedMessage = BuildInterpolatedString();
             elapsedMessage.AddText(" elapsed: ");
-            elapsedMessage.AddExpression(stopwatch.Elapsed);
+            elapsedMessage.AddExpression(stopwatch.ElapsedMilliseconds);
             elapsedMessage.AddText("ms");
             logger.LogTrace((string)elapsedMessage.ToValue());
         }
