@@ -18,13 +18,10 @@ public class LogAttribute : MethodAspect
     public override void BuildAspect(IAspectBuilder<IMethod> builder)
     {
         var declaringType = builder.Target.DeclaringType;
-
-        var loggerField = (IFieldOrProperty?) declaringType.AllFields.OfName("_logger").SingleOrDefault()
-                          ?? declaringType.AllProperties.OfName("Logger").SingleOrDefault();
-
-        //var loggerField =
-        //    (IFieldOrProperty?) declaringType.AllFields.SingleOrDefault(field => field.Type.Is(typeof(ILogger))) ??
-        //    declaringType.AllProperties.SingleOrDefault(prop => prop.Type.Is(typeof(ILogger)));
+        
+        var loggerField =
+            (IFieldOrProperty?)declaringType.AllFields.SingleOrDefault(field => field.Type.Is(typeof(ILogger))) ??
+            declaringType.AllProperties.SingleOrDefault(prop => prop.Type.Is(typeof(ILogger)));
 
         if (loggerField == null)
         {
