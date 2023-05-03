@@ -15,6 +15,13 @@ public class LogAttribute : MethodAspect
             "The type '{0}' must have a field 'ILogger _logger' or a property 'ILogger Logger'.");
 
     /// <inheritdoc />
+    public override void BuildEligibility(IEligibilityBuilder<IMethod> builder)
+    {
+        base.BuildEligibility(builder);
+        builder.AddRule(EligibilityRuleFactory.GetAdviceEligibilityRule(Framework.Advising.AdviceKind.OverrideMethod));
+    }
+
+    /// <inheritdoc />
     public override void BuildAspect(IAspectBuilder<IMethod> builder)
     {
         var declaringType = builder.Target.DeclaringType;
