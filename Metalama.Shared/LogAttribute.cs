@@ -3,6 +3,7 @@ using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
 using Metalama.Framework.Code.SyntaxBuilders;
 using Metalama.Framework.Diagnostics;
+using Metalama.Framework.Eligibility;
 using Microsoft.Extensions.Logging;
 
 namespace Metalama.Shared;
@@ -12,6 +13,13 @@ public class LogAttribute : MethodAspect
     private static readonly DiagnosticDefinition<INamedType> _missingLoggerFieldError =
         new("LOG01", Severity.Error,
             "The type '{0}' must have a field 'ILogger _logger' or a property 'ILogger Logger'.");
+
+    /// <inheritdoc />
+    public override void BuildEligibility(IEligibilityBuilder<IMethod> builder)
+    {
+        base.BuildEligibility(builder);
+        builder.AddRule(EligibilityRuleFactory.GetAdviceEligibilityRule(Framework.Advising.AdviceKind.OverrideMethod));
+    }
 
     /// <inheritdoc />
     public override void BuildAspect(IAspectBuilder<IMethod> builder)
