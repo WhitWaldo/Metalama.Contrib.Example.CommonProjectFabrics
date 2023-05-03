@@ -13,7 +13,7 @@ public class SharedFabric : ProjectFabric
             .SelectMany(compilation => compilation.AllTypes)
             .Where(type => (type.Accessibility is Accessibility.Public or Accessibility.Internal))
             .SelectMany(type => type.Methods)
-            .Where(method => method.Accessibility == Accessibility.Public && method.Name != "ToString")
+            .Where(method => method.Accessibility == Accessibility.Public && method.Name != "ToString" && method.Name != "Deconstruct" && method.Name != "GetHashCode" && method.Name != "Equals")
             .AddAspectIfEligible<LogAttribute>();
     }
 }
