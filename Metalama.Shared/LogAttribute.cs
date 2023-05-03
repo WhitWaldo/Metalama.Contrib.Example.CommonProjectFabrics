@@ -21,11 +21,7 @@ public class LogAttribute : MethodAspect
 
         var loggerField = (IFieldOrProperty?) declaringType.AllFields.OfName("_logger").SingleOrDefault()
                           ?? declaringType.AllProperties.OfName("Logger").SingleOrDefault();
-
-        //var loggerField =
-        //    (IFieldOrProperty?) declaringType.AllFields.SingleOrDefault(field => field.Type.Is(typeof(ILogger))) ??
-        //    declaringType.AllProperties.SingleOrDefault(prop => prop.Type.Is(typeof(ILogger)));
-
+        
         if (loggerField == null)
         {
             builder.Diagnostics.Report(_missingLoggerFieldError.WithArguments(declaringType));

@@ -5,10 +5,10 @@ namespace App;
 
 public class Activity
 {
-    private readonly Repository<Person> _people;
+    private readonly IRepository<Person> _people;
     private readonly ILogger _logger;
 
-    public Activity(Repository<Person> peopleRepo, ILogger<Activity> logger)
+    public Activity(IRepository<Person> peopleRepo, ILogger<Activity> logger)
     {
         _people = peopleRepo;
         _logger = logger;

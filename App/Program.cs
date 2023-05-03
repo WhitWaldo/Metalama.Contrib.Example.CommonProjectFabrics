@@ -18,8 +18,7 @@ internal class Program
     {
         var serviceCollection = new ServiceCollection()
             .AddLogging(opt => opt.AddConsole().SetMinimumLevel(LogLevel.Trace))
-            .AddSingleton<Repository<Person>>()
-            //.AddSingleton<IRepository<Person>, Repository<Person>>()
+            .AddSingleton<IRepository<Person>, Repository<Person>>()
             .AddSingleton<Activity>();
 
         return serviceCollection.BuildServiceProvider();

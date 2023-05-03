@@ -2,7 +2,7 @@
 
 namespace Models;
 
-public class Repository<T>// : IRepository<T> 
+public class Repository<T> : IRepository<T> 
     where T : IIdentifiable
 {
     private List<T> _entities = new();
