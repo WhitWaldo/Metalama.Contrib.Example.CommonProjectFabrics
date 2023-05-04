@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Models;
 
 [assembly:AspectOrder(typeof(LogAttribute), typeof(InjectionAttribute))]
+//[assembly: AspectOrder(typeof(InjectionAttribute), typeof(LogAttribute))]
 namespace App;
 
 internal class Program
