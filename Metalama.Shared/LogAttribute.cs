@@ -37,6 +37,6 @@ public class LogAttribute : OverrideMethodAspect
     public override void BuildEligibility(IEligibilityBuilder<IMethod> builder)
     {
         base.BuildEligibility(builder);
-        builder.AddRule(EligibilityRuleFactory.GetAdviceEligibilityRule(AdviceKind.OverrideMethod));
+        builder.AddRule(EligibilityRuleFactory.GetAdviceEligibilityRule(AdviceKind.IntroduceMethod));
     }
 }
