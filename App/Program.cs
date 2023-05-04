@@ -1,7 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Metalama.Framework.Aspects;
+using Metalama.Shared;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Models;
 
+[assembly:AspectOrder(typeof(LogAttribute), typeof(InjectionAttribute))]
 namespace App;
 
 internal class Program

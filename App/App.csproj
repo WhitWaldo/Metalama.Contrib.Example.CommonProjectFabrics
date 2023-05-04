@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Metalama.Shared\Metalama.Shared.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Shared.Interfaces\Shared.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

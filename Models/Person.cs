@@ -1,18 +1,8 @@
-﻿namespace Models;
-//public class Person : IIdentifiable
-//{
-//    public Person(string name)
-//    {
-//        Id = Guid.NewGuid();
-//        Name = name;
-//    }
+﻿using Shared.Interfaces;
 
-//    public Guid Id { get; init; }
+namespace Models;
 
-//    public string Name { get; init; }
-//}
-
-public record Person(string Name) : IIdentifiable
+public record Person(string Name) : IHasId
 {
     public Guid Id { get; init; } = Guid.NewGuid();
 }

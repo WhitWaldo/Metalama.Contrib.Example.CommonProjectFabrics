@@ -10,13 +10,4 @@
     <Compile Remove="L:\Innovian\Metalama.Contrib.Example.CommonProjectFabrics\SharedFabric.cs" />
   </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Metalama.Framework" Version="2023.0.113-rc" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Metalama.Shared\Metalama.Shared.csproj" />
-	  <ProjectReference Include="..\Shared.Interfaces\Shared.Interfaces.csproj" />
-	</ItemGroup>
-
 </Project>
